@@ -1,0 +1,51 @@
+<div class="container mt-4">
+
+  <h2>Listado de Clientes</h2>
+
+  <button class="btn btn-primary mb-3" (click)="nuevo()">
+    + Nuevo Cliente
+  </button>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Población</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <!-- FLOW CONTROL: @for -->
+      @for (c of clientes(); track c.id) {
+      <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }} {{ c.apellido1 }} {{ c.apellido2 }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.telefono }}</td>
+        <td>{{ c.poblacion }}</td>
+
+        <td>
+          <button class="btn btn-warning btn-sm me-1" (click)="editar(c.id)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(c.id)">Eliminar</button>
+        </td>
+      </tr>
+      }
+
+      <!-- FLOW CONTROL: @empty -->
+      @empty {
+      <tr>
+        <td colspan="6" class="text-center">
+          No hay clientes registrados.
+        </td>
+      </tr>
+      }
+
+    </tbody>
+  </table>
+
+</div>

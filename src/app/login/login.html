@@ -1,0 +1,17 @@
+<h2>Login</h2>
+
+<form [formGroup]="formLogin" (ngSubmit)="login()">
+
+  <label>Usuario</label>
+  <input type="text" formControlName="usuario">
+
+  <label>Contraseña</label>
+  <input type="password" formControlName="password">
+
+  <button type="submit">Entrar</button>
+
+</form>
+
+@if (mensaje) {
+  <p class="error">{{ mensaje }}</p>
+}
